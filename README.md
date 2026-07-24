@@ -56,7 +56,6 @@ The buzzer logic uses distinct safety zones based on current temperature reading
 
 * **Hardware Power Switch:** Add a dedicated switch to the chassis to cut battery power without manually disconnecting the cells.
 * **Power Cycling:** Implement a programmable timer controller or utilize ESP32 deep sleep states to turn the unit off during specific hours, conserving alkaline battery life.
-* **Cable Management:** Shorten the wire runs between the LM2596S buck converter and the breadboard rails to reduce parasitic inductance and electrical noise in the circuit.
 
 ## Pictures
 
