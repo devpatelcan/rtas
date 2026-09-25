@@ -13,7 +13,7 @@ Central thermostats often fail to capture accurate temperature variations in sec
 
 ## Features
 
-* **Live Local Display:** Updates temperature and humidity readings every $1\text{s}$ on a 16x2 LCD.
+* **Live Local Display:** Updates temperature and humidity readings every 1s on a 16x2 LCD.
 * **Audio Alerts:** Sounds a passive piezo buzzer at varying intervals based on defined safety thresholds.
 * **Smart Assistant Integration:** Connects to Sinric Pro via WiFi, allowing users to ask Google Home for current room readings.
 * **Non-Blocking Logic:** Boots up and displays sensor data immediately, managing network connection attempts in the background.
@@ -26,25 +26,25 @@ Central thermostats often fail to capture accurate temperature variations in sec
 | **ESP32-Devkit ESP-WROOM-32** | Main microcontroller handling sensor data, logic, and WiFi communication. |
 | **Adafruit SHTC3** | High-precision I2C digital temperature and humidity sensor. |
 | **1602 LCD Display** | Provides visual data. Wired via a 4-bit parallel interface. |
-| **Passive Piezo Buzzer** | Driven by a $2\text{kHz}$ PWM signal to emit audio alerts. |
-| **LM2596S Buck Converter** | Steps down the $9\text{V}$ battery input to a stable $5\text{V}$ for the MCU and LCD. |
+| **Passive Piezo Buzzer** | Driven by a 2 kHz PWM signal to emit audio alerts. |
+| **LM2596S Buck Converter** | Steps down the 9V battery input to a stable 5V for the MCU and LCD. |
 | **10K Ohm Potentiometer** | Acts as a voltage divider to configure the contrast for the LCD. |
 | **6xAA Battery Pack** | Provides the $9\text{V}$ DC power source for the device. |
 
 ## Power Distribution
 
 Power delivery is split to handle the different logic levels required by the components:
-1. The 6xAA battery pack supplies $9\text{V}$ to the LM2596S buck converter.
-2. The buck converter steps the voltage down to $5\text{V}$ and feeds a power rail.
-3. The $5\text{V}$ rail powers the 1602 LCD and supplies the ESP32 via its `VIN` pin.
-4. The ESP32 uses its internal regulator to output $3.3\text{V}$, which powers the SHTC3 sensor and the passive buzzer.
+1. The 6xAA battery pack supplies 9V to the LM2596S buck converter.
+2. The buck converter steps the voltage down to 5V and feeds a power rail.
+3. The 5V rail powers the 1602 LCD and supplies the ESP32 via its `VIN` pin.
+4. The ESP32 uses its internal regulator to output 3.3V, which powers the SHTC3 sensor and the passive buzzer.
 
 ## Firmware and Logic
 
 The firmware is written using the Arduino framework (`<Arduino.h>`). 
 
 ### Smart Data Transmission
-To respect API limits and network bandwidth, the ESP32 does not blindly send data every second. It transmits data to the Sinric Pro cloud only if the temperature/humidity delta is significant, or a hard limit of $60\text{s}$ has passed since the last update.
+To respect API limits and network bandwidth, the ESP32 does not blindly send data every second. It transmits data to the Sinric Pro cloud only if the temperature/humidity delta is significant, or a hard limit of 60s has passed since the last update.
 
 ### Alarm Thresholds
 The buzzer logic uses distinct safety zones based on current temperature readings:
