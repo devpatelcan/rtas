@@ -48,9 +48,9 @@ To respect API limits and network bandwidth, the ESP32 does not blindly send dat
 
 ### Alarm Thresholds
 The buzzer logic uses distinct safety zones based on current temperature readings:
-* **Critical Zone ($< 15^{\circ}\text{C}$ or $> 27^{\circ}\text{C}$):** The buzzer emits a fast beep every $5\text{s}$.
-* **Warning Zone ($15^{\circ}\text{C} - 17^{\circ}\text{C}$ or $24^{\circ}\text{C} - 27^{\circ}\text{C}$):** The buzzer emits a slow beep every $15\text{s}$.
-* **Safe Zone ($17^{\circ}\text{C} - 24^{\circ}\text{C}$):** The alarm remains off.
+* **Critical Zone 15 deg C or >27 deg C:** The buzzer emits a fast beep every 5s.
+* **Warning Zone 15 degC - 17 deg C 24 deg C - 27 deg C:** The buzzer emits a slow beep every $15\text{s}$.
+* **Safe Zone 17 deg C - 24 deg C:** The alarm remains off.
 
 ## Future Improvements
 
